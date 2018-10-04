@@ -68,10 +68,33 @@ class ListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell")!
         
         
-        cell.textLabel?.text = row.title
+        
+        let title = cell.viewWithTag(101) as? UILabel
+        
+        //-->추가되는 부분 시작
+        // 영화제목이 표시될 레이블을 title 변수로 받음
+        
+        let desc = cell.viewWithTag(102) as? UILabel
+        // 영화요약이 표시될 레이블을 desc 변수로 받음
+        
+        let opendate = cell.viewWithTag(103) as? UILabel
+        // 영화 개봉일이 표시될 레이블을 opendate 변수로 받음
+        
+        let rating = cell.viewWithTag(104) as? UILabel
+        //영화 별점이 표시될 레이블을 rating  변수로 받음
+        
+        title?.text = row.title
+        desc?.text = row.description
+        opendate?.text = row.opendate
+        rating?.text = "\(row.rating!)"
+        //<----추가되는 부분 끝
+        
+        
+        
+        // cell.textLabel?.text = row.title
         
         //추가사항 : 서브타이틀에 데이터 연결
-        cell.detailTextLabel?.text = row.description
+       // cell.detailTextLabel?.text = row.description
         
         return cell
         
